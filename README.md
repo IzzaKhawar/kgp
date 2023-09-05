@@ -38,7 +38,7 @@ To get started with the KFUEIT Grievances Portal, follow these steps:
    npm start  
 5. Access the portal in your web browser at http://localhost:3000.
 
-##Usage
+## Usage
 **Student Complaint Submission**:
 
 - Log in to the portal using your credentials.
@@ -59,10 +59,10 @@ To get started with the KFUEIT Grievances Portal, follow these steps:
 
 - After a complaint is resolved, students can provide feedback on the resolution process.
 
-##Contact
+## Contact
 If you have any questions or need assistance, please contact our support team at
 [**customer.kgp@gmail.com**](mailto:customer.kgp@gmail.com)
-##Acknowledgments
+## Acknowledgments
 We would like to thank the following individuals and organizations for their contributions and support.
 
 [**KFUEIT University**](https://kfueit.edu.pk)
