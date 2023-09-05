@@ -31,6 +31,22 @@ To get started with the KFUEIT Grievances Portal, follow these steps:
 
    ```bash
    cd kfueit-grievances-portal
+3. Creating a virtual environment:
+It's best practice to create a virtual environment to manage project dependencies. To create and activate a virtual environment, follow these steps:
+- Open a terminal and navigate to the project directory if you're not already there.
+- Create a virtual environment (replace myenv with your preferred name):
+  ```bash
+  python -m venv myenv
+- Activate the virtual environment:
+
+## On Windows:
+    ```bash
+    myenv\Scripts\activate
+
+## On macOS and Linux:
+
+    ```bash
+    source myenv/bin/activate
 
 3. Install the required Python packages:
 
