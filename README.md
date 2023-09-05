@@ -18,7 +18,7 @@ The **KFUEIT Grievances Portal** is a web-based complaint management system desi
 
 - **Feedback Submission**: Students can provide feedback on the resolution of their complaints.
 
-## Getting Started
+## Installation:
 
 To get started with the KFUEIT Grievances Portal, follow these steps:
 
@@ -26,17 +26,27 @@ To get started with the KFUEIT Grievances Portal, follow these steps:
 
    ```bash
    git clone https://github.com/IzzaKhawar/kgp.git
-2. Set up the necessary environment variables, such as database credentials and security configurations, as specified in the .env file.
-
-3. Install the required dependencies using a package manager like npm or yarn.
+   
+2. Navigate to the project directory:
 
    ```bash
-   npm install
-   
-4. Run the application.
-   ```sql
-   npm start  
-5. Access the portal in your web browser at http://localhost:3000.
+   cd kfueit-grievances-portal
+
+3. Install the required Python packages:
+
+   ```bash
+   pip install -r req.txt
+
+4. Perform initial database migrations:
+
+   ```bash
+   python manage.py migrate
+
+5. Start the development server:
+   ```bash
+   python manage.py runserver
+
+6. Access the portal in your web browser at http://localhost:8000.
 
 ## Usage
 **Student Complaint Submission**:
