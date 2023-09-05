@@ -37,17 +37,11 @@ To get started with the KFUEIT Grievances Portal, follow these steps:
    ```bash
    pip install -r req.txt
 
-4. Perform initial database migrations:
-
-   ```bash
-   python manage.py makemigrations
-   python manage.py migrate
-
-5. Start the development server:
+4. Start the development server:
    ```bash
    python manage.py runserver
 
-6. Access the portal in your web browser at http://localhost:8000.
+5. Access the portal in your web browser at http://localhost:8000.
 
 ## Usage
 **Student Complaint Submission**:
