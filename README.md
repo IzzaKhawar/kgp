@@ -40,6 +40,7 @@ To get started with the KFUEIT Grievances Portal, follow these steps:
 4. Perform initial database migrations:
 
    ```bash
+   python manage.py makemigrations
    python manage.py migrate
 
 5. Start the development server:
