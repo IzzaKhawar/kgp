@@ -30,7 +30,7 @@ To get started with the KFUEIT Grievances Portal, follow these steps:
 2. Navigate to the project directory:
 
    ```bash
-   cd kfueit-grievances-portal
+   cd kgp
 3. Creating a virtual environment:
 It's best practice to create a virtual environment to manage project dependencies. To create and activate a virtual environment, follow these steps:
 - Open a terminal and navigate to the project directory if you're not already there.
