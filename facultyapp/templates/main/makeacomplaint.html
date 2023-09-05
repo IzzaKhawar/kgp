@@ -1,0 +1,223 @@
+{% extends 'main/mainbase.html' %}
+{% load static %}
+{% block title %}Make a Complaint{% endblock title %}
+
+{% block main %}
+
+{% include 'main/header.html' %}
+
+{% include 'main/breadcrumb.html' %}
+
+<style>
+    /* change 5 to the number of items you want to show at start of dropdown */
+ /* 1em = font height, 8px from outline + padding*/
+ /* max-height and not height for when search has less results */
+ 
+
+
+#myDropdown {
+  max-height: calc(4 * (2em + 8px));
+}
+
+/* rest of your css */
+
+.dropdown .search-area  {
+    box-sizing: border-box;
+    background-image: url("searchicon.png");
+    background-position: 14px 12px;
+    background-repeat: no-repeat;
+    font-size: 16px;
+    padding-top:5px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    {% comment %} color: black !important; {% endcomment %}
+    
+}
+.dropdown .search-area::placeholder {
+    color: red !important;
+    text-align: center;
+  }
+
+.dropdown .search-area:focus {
+    outline: 3px solid #ddd;
+    color: black !important;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    overflow: auto;
+    border: 1px solid #ddd;
+    z-index: 1;
+}
+
+.dropdown-content span {
+    color: black;
+    padding-top:5px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown span:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
+}
+{% comment %} input#search_input {
+    min-width: 191px;
+} {% endcomment %}
+</style>
+    <!-- Register Complaint
+    ============================================= -->
+    {% if success %}
+    <div class="alert alert-success mt-2 p-2" role="alert">
+        <center>{{success}}</center>
+    </div>
+    {% endif %}
+    <div class="container mt-5">
+        <div class="consultation-area default-padding-bottom">
+            <div class="row align-center">
+                <div class="col-lg-12 form">
+                    <div class="appoinment-box text-center wow fadeInRight">
+                        <div class="container-form">
+                            <img src="{% static 'main/img/logo-light.png' %}" alt="Logo" style="max-width:150px ;max-height: 150px;">
+                            <div class="heading mt-3">
+                                <h4>{{department}} Complaint Form</h4>
+                                <h4>Write Complaint Details Below</h4>
+                            </div>
+                            <form action="#" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input class="form-control" id="title" name="title" placeholder="Title"
+                                                type="text" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input class="form-control" name="hod" type="text" value="{{hod.0.fname}} {{hod.0.lname}}" readonly disabled>
+                                            <input class="form-control" name="hod_id" type="hidden" value="{{hod.0.id}}">
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="col-md-12 dropdown">
+                                        <div class="form-group ">
+                                            <input onclick="openSearchDropdown()" name="cat_id" id="search_input" class="form-control" placeholder="Complaint Category" readonly style="cursor: pointer;"  />
+                                            <div id="myDropdown" class="dropdown-content">
+                                                <input type="text" placeholder="Search.." id="search_value" onkeyup="filterSearchDropdown()" class="search-area bg-white" style="border-radius: 0px !important; width:100%" />
+                                                {% for complaintcategorie in complaintcategories %}
+                                                <span data-value="{{complaintcategorie.name}}" onclick="selectFilteredValue()" class="bg-white" style="cursor: pointer;" >{{complaintcategorie.name}}</span>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <textarea class="form-control" id="complaint_description"
+                                                name="complaint_description" placeholder="Complaint Description"
+                                                rows="5" cols="300" required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 d-flex justify-content-between mx-2">
+                                        <input type="checkbox" id="checkbox" name="hide">
+                                        <label style="margin-top: 10px;color: white;" for="checkbox">Hide my
+                                            Identity</label>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group ">
+                                            <label style="text-align: left;  color: white;"> Upload Image</label>
+                                            
+                                            <input class="form-control" type="file" id="image" name="image"
+                                                placeholder="Image" accept="image/*">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label style="text-align: left;  color: white;"> Upload Video</label>
+                                            <input class="form-control" type="file" id="video" name="video"
+                                                placeholder="Video" accept="video/*">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                   
+                                        <div class="col-md-12 d-flex justify-content-between mx-2">
+                                            <input type="checkbox" id="checkboxaccept" name="declaration" required>
+                                            <label style="margin-top: 34px;color: white;" for="checkboxaccept">I hereby
+                                                declare that all the evidence provided is true to the best of my
+                                                knowledge. I understand that any intentional misrepresentation or false
+                                                information provided may lead to legal consequences and can result in
+                                                the rejection of my complaint.</label>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="col-md-12">
+                                        <button type="submit" name="submit" id="submit">
+                                            Lodge Complaint
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End Registeration -->
+
+    <script>
+        function openSearchDropdown() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+        
+        function closeSearchDropdown() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+        
+        function selectFilteredValue() {
+            document.getElementById("search_input").value = event.target.getAttribute("data-value");
+            closeSearchDropdown();
+        }
+        
+        function filterSearchDropdown() {
+            var input, filter, ul, li, span, i;
+            input = document.getElementById("search_value");
+            filter = input.value.toUpperCase();
+            div = document.getElementById("myDropdown");
+            span = div.getElementsByTagName("span");
+            for (i = 0; i < span.length; i++) {
+                txtValue = span[i].textContent || span[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    span[i].style.display = "";
+                } else {
+                    span[i].style.display = "none";
+                }
+            }
+        }
+        
+        function validateForm(event) {
+            var catId = document.getElementById('search_input').value;
+            if (!catId) {
+               event.preventDefault(); // Prevent form submission
+               alert('Please select a Complaint Category.');
+            }
+        }
+
+        document.getElementById("submit").addEventListener("click", validateForm);
+
+    </script>
+
+
+    {% include 'main/footer.html' %}
+    
+    {% endblock main %}

@@ -1,0 +1,35 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+
+
+<head>
+    <meta charset="utf-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    
+    <title>KGP | {% block title %}{% endblock title %}</title>
+    
+    <!-- ========== Favicon Icon ========== -->
+    <link rel="shortcut icon" href="{% static 'main/img/favicon.png' %}" type="image/x-icon">
+
+    <link href="{% static 'css/styles.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/bootstrap_limitless.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/layout.min.css' %}" rel="stylesheet" type="text/css">
+    {% block starcss %}{% endblock starcss %}
+
+</head>
+<body>
+
+    
+    {% block main %}
+    {% endblock main %}
+    
+    
+
+</body>
+
+
+</html>

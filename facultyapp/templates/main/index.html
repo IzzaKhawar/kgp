@@ -1,0 +1,374 @@
+{% extends 'main/mainbase.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+{% block main %}
+
+
+{% include 'main/header.html' %}
+
+
+   <!-- Start Banner
+    ============================================= -->
+    <div class="banner-area top-pad-responsive content-less heading-double">
+        <div id="bootcarousel" class="carousel text-center text-light text-large slide carousel-fade animate_text" data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner carousel-zoom">
+                <div class="carousel-item active">
+                    <div class="slider-thumb bg-cover" style="background-image: url({{carouselmain.image.url}});"></div>
+                    <div class="box-table">
+                        <div class="box-cell shadow dark">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-10 offset-lg-1">
+                                        <div class="content">
+                                            <h2 data-animation="animated slideInRight">Meet Your <strong>Problems Solved</strong></h2>
+                                            <h4 data-animation="animated slideInLeft">Kfueit Grievances Portal</h4>
+                                            <a data-animation="animated fadeInUp" class="btn btn-md btn-gradient" href="{% url 'selectdepartment' %}">Make a Complaint</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% for carouselimage in carouselimages %}
+                <div class="carousel-item">
+                    <div class="slider-thumb bg-cover" style="background-image: url({{carouselimage.image.url}});"></div>
+                    <div class="box-table">
+                        <div class="box-cell shadow dark">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-10 offset-lg-1">
+                                        <div class="content">
+                                            <h2 data-animation="animated slideInRight">Meet Your <strong>Problems Solved</strong></h2>
+                                            <h4 data-animation="animated slideInLeft">Kfueit Grievances Portal</h4>
+                                            <a data-animation="animated fadeInUp" class="btn btn-md btn-gradient" href="{% url 'selectdepartment' %}">Make a Complaint</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="shape">
+                    <img src="{% static 'main/img/shape/2.png' %}" alt="Shape">
+                </div>
+            </div>
+            <!-- End Wrapper for slides -->
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control light" href="#bootcarousel" data-slide="prev">
+                <i class="fa fa-angle-left"></i>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control light" href="#bootcarousel" data-slide="next">
+                <i class="fa fa-angle-right"></i>
+                <span class="sr-only">Next</span>
+            </a>
+
+        </div>
+    </div>
+    <!-- End Banner -->
+
+<!-- Start About 
+    ============================================= -->
+    <br>
+    <br>
+    <a href="#about" id="about">
+    <div class="col-lg-8 offset-lg-2">
+        <div class="site-heading text-center">
+    
+            <h2>About Us</h2>
+            
+        </div>
+    </div>
+</a>
+    <div class="container-full">
+    <div class="about-features-area about-area reverse default-padding" style="margin-top: -10%;">
+
+
+        <div class="container">
+            <div class="row align-center">
+
+                <!-- Start About Content -->
+                <div class="col-lg-6 info wow fadeInLeft">
+                    <h2>Kfueit Grievances Portal</h2>
+                    <p style="text-align: justify;">
+                        Our website can provide valuable services to help students, faculty, and staff resolve issues and improve the university experience. By offering a user-friendly platform, effective communication channels, and useful resources, our portal can help ensure that all members of the university community feel heard and supported.
+                    </p>
+                    
+                    
+                </div>
+                <!-- End About Content -->
+                                <!-- Start Emergency -->
+                                <div class="col-lg-6 emergency">
+                                    <div class="em-services-items">
+                                        <div class="table-responsive">          
+                                            <div class="thumb item single-item col-lg-4 col-md-6">
+                                                <img src="{% static 'main/img/about.jpg' %}"  alt="About" style="max-width: 500px;max-height: 550px;">
+                                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+            </div>
+            
+        </div>
+       
+    </div>
+
+</div>
+    <!-- End About -->
+
+
+
+
+    {% comment %} 
+
+    <!-- Start Gallery
+    ============================================= -->
+    <div class="gallery-area default-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="site-heading text-center">
+                        <h4>Gallery</h4>
+                        <h2>Our Environment</h2>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="gallery-items-area text-center">
+                <div class="row">
+                    <div class="col-md-12 gallery-content">
+                        
+
+                        <div class="magnific-mix-gallery masonary">
+                            <div id="portfolio-grid" class="gallery-items colums-3">
+                                <!-- Single Item -->
+                                <div class="pf-item development capital">
+                                    <div class="effect-box">
+                                        <img src="assets/img/800x800.png" alt="thumb">
+                                    </div>
+                                </div>
+                                <!-- End Single Item -->
+                                <!-- Single Item -->
+                                    <div class="pf-item consulting branding">
+                                    <div class="effect-box">
+                                        <img src="assets/img/800x600.png" alt="thumb">
+                                    </div>
+                                </div>
+                                <!-- End Single Item -->
+                                <!-- Single Item -->
+                                   <div class="pf-item consulting finance">
+                                    <div class="effect-box">
+                                        <img src="assets/img/800x800.png" alt="thumb">
+                                    </div>
+                                </div>
+                                <!-- End Single Item -->
+                                <!-- Single Item -->
+                                    <div class="pf-item finance">
+                                    <div class="effect-box">
+                                        <img src="assets/img/800x800.png" alt="thumb">
+                                    </div>
+                                </div>
+                                <!-- End Single Item -->
+                                <!-- Single Item -->
+                                    <div class="pf-item capital development">
+                                    <div class="effect-box">
+                                        <img src="assets/img/800x600.png" alt="thumb">
+                                    </div>
+                                </div>
+                                <!-- End Single Item -->
+                                <!-- Single Item -->
+                                    <div class="pf-item consulting branding">
+                                    <div class="effect-box">
+                                        <img src="assets/img/800x600.png" alt="thumb">
+                                    </div>
+                                </div>
+                                <!-- Single Item -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Gallery -->
+{% endcomment %}
+
+    <!-- Start Blog 
+    ============================================= -->
+    <a href="#team" id="team">
+    <div class="blog-area bottom-less default-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="site-heading text-center">
+                
+                        <h2>Our Team</h2>
+                        
+                    </div>
+                </div>
+            </div>
+        </div> </a>
+        <div class="container">
+            <div class="blog-items">
+                <div class="row">
+                    <!-- Single Itme -->
+                    <div class="single-item col-lg-4 col-md-6">
+                        <div class="item">
+                            <div class="thumb">
+                             <center>   <img src="{% static 'main/img/female.png' %}"  alt="Team"  style="max-width: 330px;max-height: 300px; margin-top: 10%; ">
+                             </center>              
+                            </div>
+                            <div class="info">
+                                
+                                <div class="meta">
+                                    <ul>
+                                        <li>
+                                           
+                                                   <center><h5>Ms. Madiha Rehman</h5></center>
+                                                   <center><span><strong>Project Supervisor</strong></span></center><br>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Itme -->
+                    <!-- Single Itme -->
+                    <div class="single-item col-lg-4 col-md-6">
+                        <div class="item">
+                            <div class="thumb">
+                             <center>   <img src="{% static 'main/img/female.png' %}"  alt="Team"  style="max-width: 330px;max-height: 300px; margin-top: 10%; ">
+                             </center>    
+                            </div>
+                            <div class="info">
+                                <div class="meta">
+                                    <ul>
+                                        <li>
+                                                <center><h5>Izza Khawar</h5></center>
+                                                <center><span><strong>Cosc19111002</strong></span></center>
+                                                <center><span>Student</span></center>
+                                        
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Itme -->
+                    <!-- Single Itme -->
+                    <div class="single-item col-lg-4 col-md-6">
+                        <div class="item">
+                            <div class="thumb">
+                              <center>  <img src="{% static 'main/img/female.png' %}"  alt="Team" style="max-width: 330px;max-height: 300px; margin-top: 10%; ">
+                              </center>     
+                            </div>
+                            <div class="info">
+                                <div class="meta">
+                                    <ul>
+                                        <li>
+                                                <h5 style="text-align: center;">Mariam Khalid</h5>
+                                                <center><span><strong>Cosc19111083</strong></span></center>
+                                                <center><span>Student</span></center>
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Itme -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Blog Area -->
+ 
+    <!-- Start Contact Area  
+    ============================================= -->
+          <a href="#contact">  <div class="col-lg-8 offset-lg-2">
+                <div class="site-heading text-center">
+            
+                    <h2>Contact Us</h2>
+                    
+                </div>
+            </div></a>
+    <div id="contact" class="contact-us-area default-padding">
+        <div class="container">
+            <div class="contact-items">
+                <div class="row">
+
+                    <div class="col-lg-7 wow address-box fadeInUp bg-cover" style="background-image: url({% static 'main/img/back.png' %}); margin-top: -10%;">
+                        <div class="address-info">
+                            <ul>
+                                <li>
+                                    <h5><i class="flaticon-call"></i> Phone</h5>
+                                    <span>+92 306 6955338</span>
+                                </li>
+                                <li>
+                                    <h5><i class="flaticon-email"></i> Email</h5>
+                                    <span>customer.kgp@gmail.com</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 wow fadeInLeft contact-form-box">
+                        <h2>Need help? <strong>Contact Us</strong></h2>
+                        {% comment %} <form method="POST" class="contact-form" action="{% url 'send_email' %}"> {% endcomment %}
+                            {% comment %} {% csrf_token %} {% endcomment %}
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <input class="form-control" id="name" name="name" placeholder="Name" type="text">
+                                        <span class="alert-error"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input class="form-control" id="email" name="email" placeholder="Email*" type="email" required>
+                                        <span class="alert-error"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group comments">
+                                        <textarea class="form-control" id="comments" name="message" placeholder="Tell us about your problem *" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <button type="submit" url name="submit" id="submit">
+                                        Send Message
+                                    </button>
+                                </div>
+                                <!-- Alert Message -->
+                              {% comment "" %} <div class="col-lg-12 alert-notification">
+                                    <div id="message" class="alert-msg"></div>
+                                </div>{% endcomment %} 
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Contact -->
+{% comment %}
+    <!-- Start Google Maps 
+    ============================================= -->
+    <!--<div class="maps-area">
+        <div class="google-maps">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d14767.262289338461!2d70.79414485000001!3d22.284975!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1424308883981"></iframe>
+        </div>
+    </div>
+    <!-- End Google Maps --> {% endcomment %}
+{% include 'main/footer.html' %}
+{% endblock main %}
+
+

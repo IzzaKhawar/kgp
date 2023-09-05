@@ -1,0 +1,62 @@
+{% extends 'hod/main/mainbase.html' %}
+{% load static %}
+{% block title %}Close Complaint{% endblock title %}
+
+{% block main %}
+
+{% include 'hod/main/header.html' %}
+
+{% include 'hod/main/breadcrumb.html' %}
+
+    <!-- Register Complaint
+    ============================================= -->
+    {% if success %}
+    <div class="alert alert-success mt-2 p-2" role="alert">
+        <center>{{success}}</center>
+    </div>
+    {% endif %}
+    <div class="container mt-5">
+        <div class="consultation-area default-padding-bottom">
+            <div class="row align-center">
+                <div class="col-lg-12 form">
+                    <div class="appoinment-box text-center wow fadeInRight">
+                        <div class="container-form">
+                            <img src="{% static 'main/img/logo-light.png' %}" alt="Logo" style="max-width:150px ;max-height: 150px;">
+                            <div class="heading mt-3">
+                            </div>
+                            <form action="#" method="post">
+                                {% csrf_token %}
+                                <div class="row">
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <textarea class="form-control" id="complaint_description"
+                                                name="cancel" placeholder="Cancel Details"
+                                                rows="5" cols="300" required></textarea>
+                                        </div>
+                                    </div>
+
+                                
+                                    <div class="col-md-12">
+                                        <button type="submit" name="submit" id="submit">
+                                            Submit
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End Registeration -->
+
+
+
+
+    {% include 'hod/main/footer.html' %}
+    
+    {% endblock main %}

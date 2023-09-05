@@ -1,0 +1,159 @@
+{% extends 'faculty/main/mainbase.html' %}
+{% load static %}
+{% block title %}View Complaints{% endblock title %}
+
+{% block main %}
+
+{% include 'faculty/main/header.html' %}
+
+{% include 'faculty/main/breadcrumb.html' %}
+
+    <!-- Register Complaint
+    ============================================= -->
+    <div class="container mt-5">
+        <div class="consultation-area default-padding-bottom">
+            <div class="row align-center">
+                <div class="col-lg-12 form">
+                    <div class="appoinment-box text-center wow fadeInRight">
+                        <div class="container-form">
+                            <img src="{% static 'main/img/logo-light.png' %}" alt="Logo" style="max-width:150px ;max-height: 150px;">
+                            <div class="heading mt-3">
+                                <center><h2 style="color:#fff; font-family:monospace;"><strong style="color: rgb(255, 255, 255)";>Complaint Id: </strong>{{complaint.complaint_id}}</h2>
+                                    <br>
+                                </div>
+                                <form >
+                                  <div class="row">
+                                      <div class="col-md-12">
+                                          <div class="form-">
+                                           
+                                            <h4 style="text-align: left;color:#fff; font-family:monospace; margin-bottom:-5%"><strong style="color: rgb(255, 255, 255)";>Complaint Information</strong></h4>
+                                            
+                                            <hr>
+                                            <br>
+                                            <div class="col-md-12 " style="text-align: left; color: rgb(255, 255, 255); background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                            <p style="color: rgb(255,255,255);"><strong style="color: rgb(255, 255, 255)";> Complaint ID: </strong>{{complaint.complaint_id}}</p>
+                                            <p style="color: rgb(255,255,255);"><strong style="color: rgb(255, 255, 255)";> Title: </strong>{{complaint.title}}</p>
+                                            <p style="color: rgb(255,255,255);"><strong style="color: rgb(255, 255, 255)";> Complaint Type: </strong> {{complaint.complaint_category_id.name}}</p>
+                                            <p style="color: rgb(255,255,255);"><strong style="color: rgb(255, 255, 255)";> Complaint Date: </strong>{{complaint.created_at}}</p>
+                                            </div>
+                                            <br>
+                                            <h4 style="text-align: left;color:#fff;font-family:monospace; margin-bottom:-5%"><strong style="color: rgb(255, 255, 255)";>Complaint Description</strong></h4>
+                                            <hr>
+                                            <br>
+                                            
+                                            <div  class="col-md-12" style="text-align: justify; color: rgb(255, 255, 255); background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                            <p style="color: rgb(255,255,255);">{{complaint.details}}</p>
+                                            </div>
+                                            <br>
+                                            <br>
+                                            <h4 style="text-align: left;color:#fff;font-family:monospace; margin-bottom:-5%"><strong style="color: rgb(255, 255, 255)";>Complaint Action</strong></h4>
+                                            <hr>
+                                            <br>
+                                            <div class="col-md-12" style="text-align: left; color: rgb(255, 255, 255); background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                            <p style="color: rgb(255, 255, 255)";><strong style="color: rgb(255, 255, 255)";> Action Taken: </strong>
+                                            {% if complaint.is_pending %}
+                                                Pending - Complaint Under Consideration
+                                            {% elif complaint.is_forwarded %}
+                                                Forwarded - Complaint forwarded to Focal Person
+                                            {% elif complaint.is_canceled %}
+                                                Dropped - Not a valid Complaint
+                                            {% elif complaint.is_completed %}
+                                                Closed - Issue can't be Resolved
+                                            {% elif complaint.is_withdrawn %}
+                                                Dropped - Requested by User
+                                            {% elif complaint.is_completed_resolved %}
+                                                Closed - Issue Resolved
+                                            {% endif %}
+                                            </p>
+                                            <p style="color: rgb(255,255,255);"><strong style="color: rgb(255, 255, 255)";> Action Date: </strong>
+                                            {% if complaint.is_pending %}
+                                                {{complaint.created_at}}
+                                            {% elif complaint.is_forwarded %}
+                                                {{complaint.forwarded_at}}
+                                            {% elif complaint.is_canceled %}
+                                                {{complaint.cancel_at}}
+                                            {% elif complaint.is_completed %}
+                                                {{complaint.closed_at}}
+                                            {% elif complaint.is_withdrawn %}
+                                                {{complaint.withdrawn_at}}    
+                                            {% elif complaint.is_completed_resolved %}
+                                                {{complaint.closed_at}}
+                                            {% endif %}
+                                            </p>
+                                            <p style="color: rgb(255,255,255);"><strong style="color: rgb(255, 255, 255)";> Action Description: </strong>
+                                            {% if complaint.is_pending %}
+                                                Your Complaint is submitted. Wait for further Respnse.
+                                            {% elif complaint.is_forwarded %}
+                                                {{complaint.forwarded_msg}}
+                                            {% elif complaint.is_canceled %}
+                                                {{complaint.canceled_msg}}
+                                            {% elif complaint.is_completed %}
+                                                {{complaint.completed_msg}}
+                                            {% elif complaint.is_withdrawn %}
+                                                You have withdrawn the Complaint.
+                                            {% elif complaint.is_completed_resolved %}
+                                                {{complaint.completed_msg}}
+                                            {% endif %}
+                                            </p>
+                                            </div>
+                                            <br>
+                                            <h4 style="text-align: left;color:#fff;font-family:monospace; margin-bottom:-5%"><strong style="color: rgb(255, 255, 255)";>Attachment</strong></h4>
+                                            <hr>
+                                            <br>
+                                            <div class="col-md-12" style="text-align: left; color: rgb(255, 255, 255); background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                            <p style="color: rgb(255,255,255);"> 
+                                              {{complaint.image}}
+                                              <br>
+                                               {{complaint.video}}
+                                            </p>
+                                          </div>
+                                          <br>
+                                        
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="form-control" >
+                                                <label ><strong> Submitted on: </strong>{{complaint.created_at}}</label>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                    {% if complaint.is_completed or complaint.is_completed_resolved %}
+                                    Status : Resolved
+                                    {% elif complaint.is_canceled %}
+                                    Status : Canceled
+                                    {% else %} 
+                                        
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                        <a href="{% url 'facultyclosecomplaints' complaint.complaint_id %}"  class="btn btn-info w-100" >
+                                        Close
+                                    </a>
+                                    </div>
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <a href="{% url 'facultycancelcomplaints' complaint.complaint_id %}" class="btn btn-danger w-100"  >
+                                            Cancel
+                                        </a>
+                                        
+                                        
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End Registeration -->
+
+
+{% include 'faculty/main/footer.html' %}
+    
+{% endblock main %}

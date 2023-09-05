@@ -1,0 +1,92 @@
+    {% load static %}
+    <!-- Header
+    ============================================= -->
+    <header id="home">
+
+        <!-- Start Navigation -->
+        <nav class="navbar navbar-default navbar-fixed navbar-transparent white bootsnav">
+
+
+            <div class="container-full">
+
+                <!-- Start Atribute Navigation -->
+                <div class="attr-nav extra-color">
+                    <ul>
+                        <li class="side-menu"><a href="#"><i class="fas fa-th-large"></i></a></li>
+                    </ul>
+                </div>
+                <!-- End Atribute Navigation -->
+
+                <!-- Start Header Navigation -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="{% url 'hodhome' %}">
+                        <img src="{% static 'main/img/logo-light.png' %}" class="logo logo-display" alt="Logo" style="max-width: 120px;max-height: 120px;">
+                        <img src="{% static 'main/img/logo.png' %}" class="logo logo-scrolled" alt="Logo" style="max-width: 120px;max-height: 120px;">
+                    </a>
+                </div>
+                <!-- End Header Navigation -->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-center" data-in="#" data-out="#">
+                        <li>
+                            <a href="{% url 'hodall' %}">All</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'hodopen' %}">Open</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'hodclosed' %}">Closed</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'hodcanceled' %}">Canceled</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'hodforwarded' %}">Forwarded</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'hodfeedback' %}">Feedbacks</a>
+                        </li> 
+
+
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+
+            <!-- Start Side Menu -->
+            <div class="side">
+                <a href="#" class="close-side"><i class="ti-close"></i></a>
+                <div class="widget">
+                    <h5 class="title">Welcome!</h5>
+                     <strong><h6 class="title">{{fname}} {{lname}}</h6></strong> 
+                </div>
+                <div class="widget">
+                    <h4 class="title">Additional Links</h4>
+                    <ul>
+                        
+                        <li><a href="{% url 'hodhome' %}#about">About</a></li>
+                        <li><a href="{% url 'hodhome' %}#team">Our Team</a></li>
+                        <li><a href="{% url 'hodhome' %}#contact">Contact Us</a></li>
+                        <li> <u><a href="{% url 'hodlogout' %}">Logout</a></u></li>
+                    </ul>
+                </div>
+                {% comment %} <div class="widget social">
+                    <h4 class="title">Connect With Us</h4>
+                    <ul class="link">
+                        <li class="facebook"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li class="twitter"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li class="pinterest"><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                        <li class="dribbble"><a href="#"><i class="fab fa-dribbble"></i></a></li>
+                    </ul>
+                </div> {% endcomment %}
+            </div>
+            <!-- End Side Menu -->
+
+        </nav>
+        <!-- End Navigation -->
+
+    </header>
+    <!-- End Header -->

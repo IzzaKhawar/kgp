@@ -1,0 +1,141 @@
+    {% load static %}
+    <!-- Start Footer 
+    ============================================= -->
+    <footer class="bg-dark text-light">
+        <div class="container">
+            <div class="f-items " style="padding:20px">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 item">
+                        <div class="f-item about">
+                            <img src="{% static 'main/img/logo-light.png' %}" alt="Logo" style ="max-width:150px ;max-height: 150px;">
+                            <p>
+                                Kfueit Grievances Portal gives students the ability to air concerns without fear. 
+                            </p>
+                            <div class="address">
+                                <ul>
+                                    <li>
+                                        <div class="icon">
+                                            <i class="flaticon-email"></i>
+                                        </div>
+                                        <div class="info">
+                                            <h5>Email:</h5>
+                                            {% comment %} <span>customer.kgp@gmail.com</span> {% endcomment %}
+                                            <p><a href="mailto:customer.kgp@gmail.com">customer.kgp@gmail.com</a></p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="icon">
+                                            <i class="flaticon-call"></i>
+                                        </div>
+                                        <div class="info">
+                                            <h5>Phone:</h5>
+                                            {% comment %} <span>+92306-6955338</span><br>
+                                            <span>+92311-5008827</span> {% endcomment %}
+                                            <span><a href="tel:+923066955338">+92306-6955338</a></span><br>
+                                            <span><a href="tel:+923115008827">+92311-5008827</a></span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="single-item col-lg-2 col-md-6 item">
+                        <div class="f-item link">
+                            <h4 class="widget-title">Useful Links</h4>
+                            <ul>
+                                <li>
+                                    <a href="{% url 'facultyhome' %}">Home</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'facultyall' %}">All</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'facultyopen' %}">Open</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'facultyclosed' %}">Closed</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'facultycanceled' %}">Cancelled</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'facultyfeedback' %}">Feedbacks</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="single-item col-lg-2 col-md-6 item">
+                        <div class="f-item link">
+                            <h4 class="widget-title">Useful Links</h4>
+                            <ul>
+                                <li>
+                                    <a href="#about">About</a>
+                                </li>
+                                <li>
+                                    <a href="#contact">Contact Us</a>
+                                </li>
+                                <li>
+                                    <a href="#team">Our Team</a>
+                                </li>
+                                <li>
+                                    <u><a href="{% url 'facultylogout' %}">Logout</a></u>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+                    <div class="single-item col-lg-4 col-md-6 item">
+                        <div class="f-item branches">
+                            <div class="branches">
+                                <ul>
+                                    <li>
+                                        <a href="https://kfueit.edu.pk/"><strong>KFUEIT:</strong> </a>
+                                        <span>Abu Dhabi Road, Rahim Yar Khan <br> Phone: +92 68 5882400 <br>Email: <a href="mailto:customer.kgp@gmail.com">info@kfueit.edu.pk</a><br>Fax: +92 68 5882 405<br>LMS: <a href="https://my.kfueit.edu.pk/">my.kfueit.edu.pk</a></span><br><br>
+                                        <a href="https://www.facebook.com/kfueit.official"><i class="fab fa-facebook-f">&nbsp;&nbsp;&nbsp;</i></a>
+                                        <a href="https://twitter.com/kfueitofficial"><i class="fab fa-twitter">&nbsp;&nbsp;&nbsp;</i></a>
+                                        <a href="https://www.linkedin.com/company/khawaja-fareed-university-of-engineering-&-information-technology/about/"><i class="fab fa-linkedin">&nbsp;&nbsp;&nbsp;</i></a>
+                                        <a href="https://www.youtube.com/channel/UCHyRODVjJlE45cbkjmZPF_g/featured"><i class="fab fa-youtube">&nbsp;&nbsp;&nbsp;</i></a>
+                                        <a href="https://wa.me/+923011006061"><i class="fab fa-whatsapp">&nbsp;&nbsp;&nbsp;</i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row align-center">
+                    <div class="col-md-6">
+                        {% comment %} <p>Copyright &copy;  2020. Designed by <a href="#">validtemplatess</a></p> {% endcomment %}
+                        <span >Copyright © <span id="year"></span>.</span>
+                        <span >Designed with ❤️ by  🌍 for <a href="https://kfueit.edu.pk/" style="text-decoration:none;" >KFUEIT</a></span>
+                    </div>
+                    <div class="col-md-6 text-right social">
+                        <ul>
+                            <li>
+                                <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fab fa-youtube"></i> Youtube</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom -->
+    </footer>
+    <script>document.getElementById("year").innerHTML = new Date().getFullYear();</script>
+
+    <!-- End Footer -->

@@ -1,0 +1,96 @@
+{% extends 'hod/main/mainbase.html' %}
+{% load static %}
+{% block title %}All Complaints{% endblock title %}
+{% block main %}
+
+{% include 'hod/main/header.html' %}
+
+
+
+
+{% include 'hod/main/breadcrumb.html' %}
+
+<style>
+    .truncate {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+
+</style>
+    <!-- Start Complaint
+    ============================================= -->
+    {% if complaints %}
+    {% for complaint in complaints %}
+    <div class="blog-area single full-blog full-blog " style="padding:20px;">
+        <div class="container">
+            <div class="blog-items">
+                <div class="row" >
+                    <div class="blog-content single-item wow fadeInUp col-lg-10 offset-lg-1 col-md-12">
+                        <div class="item" >
+
+                            <div class="info" style="background:#f0ffff">
+                                    <center><h4>Complaint NO : {{forloop.counter}}</h3></center>
+                                        
+                                        <div>
+                                            <div class="post-pagi-area">
+                                            </div>
+                                            <h4 style="float:left" >Complaint ID : <span class="text-success">{{complaint.complaint_id}}</span></h4>
+                                        </div>          
+                                            {% if not complaint.hide_identity %}
+                                            <h6 style="float:right;" >Complaint by : <span class="text-warning">{{complaint.user_id}}</span></h6>
+                                            {% else %}
+                                            <h6 style="float:right;" >Complaint by : <span class="text-warning">Anonymous user</span></h6>
+                                            {% endif %}
+                                        
+                                        <div class="mt-5 mx-0">
+                                            <strong>Subject</strong> : <u>{{complaint.title}}</u> </div>
+                                            <div class="mt-1 mx-0">
+                                                <p class="truncate" id="textContainer{{forloop.counter}}"><strong>Details</strong> : {{complaint.details}}</p> 
+                                            </div>
+                                            <div>
+                                                <center><a href="{% url 'hodviewcomplaints' complaint.complaint_id %}" style=" display: inline-block;font-weight: 800;text-transform: capitalize;color: #1ebeb6;padding: 8px 30px;border: 2px solid;border-radius: 30px;">View Complaint</a></center>
+                                            </div>
+
+                                    
+  
+                                    
+                                </div>
+                                
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if forloop.last %}
+    <input type="hidden" id="len" value="{{forloop.counter}}">
+    {% endif %}
+    {% endfor %}
+    {% else %}
+    <center><h1 style="color:red;">No complaints</h1></center>
+    {% endif %}
+    <!-- End Complaint -->
+
+
+
+
+    <script>
+
+        var len = document.getElementById("len").value
+        var len = parseInt(len)
+        for (let i = 1; i <= len; i++) {
+            var textContainer = document.getElementById(`textContainer${i}`);
+            var truncatedText = textContainer.innerText.slice(0, 80) + '...';
+            textContainer.innerText = truncatedText;
+          }
+    </script>
+
+
+
+    {% include 'hod/main/footer.html' %}
+
+    {% endblock main %}

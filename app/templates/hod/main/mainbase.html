@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- ========== Meta Tags ========== -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Healdi - Medical & Health Template">
+
+    <!-- ========== Page Title ========== -->
+    <title>KGP | {% block title %}{% endblock title %}</title>
+
+    <!-- ========== Favicon Icon ========== -->
+    <link rel="shortcut icon" href="{% static 'main/img/favicon.png' %}" type="image/x-icon">
+
+    <!-- ========== Start Stylesheet ========== -->
+    <link href="{% static 'main/css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'main/css/font-awesome.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'main/css/themify-icons.css' %}" rel="stylesheet" />
+    <link href="{% static 'main/css/flaticon-set.css' %}" rel="stylesheet" />
+    <link href="{% static 'main/css/magnific-popup.css' %}" rel="stylesheet" />
+    <link href="{% static 'main/css/owl.carousel.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'main/css/owl.theme.default.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'main/css/animate.css' %}" rel="stylesheet" />
+    <link href="{% static 'main/css/bootsnav.css' %}" rel="stylesheet" />
+    <link href="{% static 'main/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'main/css/responsive.css' %}" rel="stylesheet" />
+    
+    <!-- ========== End Stylesheet ========== -->
+
+
+
+    <!-- ========== Google Fonts ========== -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+      <!-- Preloader Start -->
+      <div class="se-pre-con"></div>
+      <!-- Preloader Ends -->
+
+{% block main %}  {% endblock main %}
+
+
+
+
+
+      <!-- jQuery Frameworks
+    ============================================= -->
+    <script src="{% static 'main/js/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'main/js/popper.min.js' %}"></script>
+    <script src="{% static 'main/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'main/js/equal-height.min.js' %}"></script>
+    <script src="{% static 'main/js/jquery.appear.js' %}"></script>
+    <script src="{% static 'main/js/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'main/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'main/js/modernizr.custom.13711.js' %}"></script>
+    <script src="{% static 'main/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'main/js/wow.min.js' %}"></script>
+    <script src="{% static 'main/js/progress-bar.min.js' %}"></script>
+    <script src="{% static 'main/js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'main/js/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'main/js/count-to.js' %}"></script>
+    <script src="{% static 'main/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'main/js/bootsnav.js' %}"></script>
+    <script src="{% static 'main/js/main.js' %}"></script>
+
+
+</body>
+</html>

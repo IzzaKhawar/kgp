@@ -1,0 +1,119 @@
+{% extends 'main/mainbase.html' %}
+{% load static %}
+{% block title %}Feed Back{% endblock title %}
+
+{% block main %}
+
+{% include 'main/header.html' %}
+
+
+
+
+{% include 'main/breadcrumb.html' %}
+<link rel="stylesheet" href="{% static 'main/css/feedback.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+<style>
+    /* alert css */
+
+.alert {
+	padding: 8px;
+	background-color: #f44336;
+	color: white;
+	opacity: 1;
+	transition: opacity 0.6s;
+	margin-bottom: 15px;
+  width:30%;
+  }
+  
+  .alert.success {background-color: #04AA6D;}
+  .alert.info {background-color: #2196F3;}
+  .alert.warning {background-color: #ff9800;}
+  
+  .closebtn {
+	margin-left: 10px;
+	color: white;
+	font-weight: bold;
+	float: right;
+	font-size: 22px;
+	line-height: 20px;
+	cursor: pointer;
+	transition: 0.3s;
+  }
+  
+  .closebtn:hover {
+	color: black;
+  }
+  
+
+</style>
+
+
+{% if success %}
+<center>
+  <div class="alert success mt-5">
+    <span class="closebtn">&times;</span>  
+    <h6>{{success}}</h6>
+  </div>
+</center>
+{% elif error %}
+<center>
+  <div class="alert warning mt-5">
+    <span class="closebtn">&times;</span>  
+    <h6>{{error}}</h6>
+  </div>
+</center>
+{% endif %}
+<form  method="post" class="mb-5">
+    {% csrf_token %}
+<h3 class="mt-5 ">Your Review for Complaint <u>{{complaint_id}}</u></h3>
+<div class="col-md-12 d-flex justify-content-center">
+    {% comment %} <input type="checkbox" id="checkbox" name="hide"> {% endcomment %}
+    {% comment %} <label style="margin-top: 10px; margin-left:20px" for="checkbox">Satisfied</label> {% endcomment %}
+    <div class="row">
+        <h6 class="mt-3 mr-4">Satisfaction :</h6>
+        <input type="checkbox" id="satisfied" name="satisfaction">
+        <label style="margin-top: 10px; margin-left:10px" for="satisfied">Satisfied</label>
+        {% comment %} <input type="radio" id="notsatisfied" name="satisfaction" style="margin-left:40px;" required>
+        <label style="margin-top: 10px; margin-left:10px;" for="notsatisfied">Not Satisfied</label> {% endcomment %}
+
+    </div>
+</div>
+    
+    
+    <center>
+        <fieldset class="rating" >
+            <input type="radio" id="star5" name="rating" value="5" /><label class="full" for="star5" title="Awesome - 5 stars"></label>
+            <input type="radio" id="star4" name="rating" value="4" /><label class="full" for="star4" title="Pretty good - 4 stars"></label>
+            <input type="radio" id="star3" name="rating" value="3" /><label class="full" for="star3" title="Meh - 3 stars"></label>
+            <input type="radio" id="star2" name="rating" value="2" /><label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+            <input type="radio" id="star1" name="rating" value="1" /><label class="full" for="star1" title="Sucks big time - 1 star"></label>
+            <span class="mt-1">Please rate:</span>
+    </fieldset>
+  </center>
+    
+    <center><textarea id="comment" name="feedback" class="comment-box" rows="5" cols="40" placeholder="Add your comment here..."></textarea></center>
+    <center><button type="submit" class="submit-button">Submit</button></center>
+  </div>
+</form>
+
+
+
+<script>
+    // Success Message Alert Close Btn Start
+    var close = document.getElementsByClassName("closebtn");
+    var i;
+    
+    for (i = 0; i < close.length; i++) {
+      close[i].onclick = function(){
+        var div = this.parentElement;
+        div.style.opacity = "0";
+        setTimeout(function(){ div.style.display = "none"; }, 600);
+      }
+    }
+    // Success Message Alert Close Btn End
+</script>
+
+
+    {% include 'main/footer.html' %}
+
+    {% endblock main %}

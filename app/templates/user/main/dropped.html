@@ -1,0 +1,76 @@
+{% extends 'main/mainbase.html' %}
+{% load static %}
+{% block title %}Dropped Complaints{% endblock title %}
+{% block main %}
+
+{% include 'main/header.html' %}
+
+
+
+
+{% include 'main/breadcrumb.html' %}
+
+
+    <!-- Start Complaint
+    ============================================= -->
+    {% if complaints %}
+    {% for complaint in complaints %}
+    <div class="blog-area single full-blog full-blog " style="padding:20px;">
+        <div class="container">
+            <div class="blog-items">
+                <div class="row">
+                    <div class="blog-content single-item wow fadeInUp col-lg-10 offset-lg-1 col-md-12">
+                        <div class="item">
+
+                            <div class="info">
+                                    <center><h4>Complaint NO : {{forloop.counter}}</h3></center>
+                                        
+                                        <div>
+                                            <div class="post-pagi-area">
+                                            <center><a href="{% url 'viewcomplaints' complaint.complaint_id %}" style="float:right ">View Complaint</a></center>
+                                        </div>
+                                        <h4 style="float:left" >Complaint ID : {{complaint.complaint_id}}</h4>
+                                        </div>
+
+                                        <div class="mt-5 mx-0">
+                                            Subject : {{complaint.title}} 
+                                            </div>
+                                            
+
+                                            <strong>Status</strong>
+                                            {% if complaint.is_canceled %}
+                                            <div class="alert alert-danger" role="alert" >
+                                                Dropped - Not a valid Complaint
+                                            </div>
+                                            {% elif complaint.is_withdrawn %}
+                                            <div class="alert alert-dark" role="alert" >
+                                                Dropped - Requested by User
+                                            </div>
+                                            {% endif %}
+                                    <center><u style="color:blue"><a href="{% url 'seedetails' complaint.complaint_id %}" style="color:blue">See Details</a></u></center>
+                                    
+                                </div>
+
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <center><h1 style="color:red;">No complaints</h1></center>
+    {% endif %}
+    <!-- End Complaint -->
+
+
+
+
+
+
+
+    {% include 'main/footer.html' %}
+
+    {% endblock main %}

@@ -1,0 +1,31 @@
+{% extends 'main/mainbase.html' %}
+{% load static %}
+{% block main %}
+
+
+{% include 'main/header.html' %}
+
+    <!-- Start 404 
+    ============================================= -->
+    <div class="error-page-area default-padding">
+        <div class="container">
+            <div class="row align-center text-center">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="error-box">
+                        <h1>4<i class="fas fa-sad-tear"></i>4</h1>
+                        <h2>Sorry Page Was Not Found!</h2>
+                        <p>
+                            Household shameless incommode at no objection behaviour. Especially do at he possession insensible sympathize boisterous regular inspiration.
+                        </p>
+                        <a class="btn btn-md btn-theme border" href="{% url 'home' %}"><i class="fas fa-angle-right"></i> Back to Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End 404 -->
+
+  
+    {% include 'main/footer.html' %}
+
+    {% endblock main %}

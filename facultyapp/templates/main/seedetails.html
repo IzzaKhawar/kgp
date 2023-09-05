@@ -1,0 +1,650 @@
+{% extends 'main/mainbase.html' %}
+{% load static %}
+{% block title %}See Details{% endblock title %}
+
+{% block main %}
+
+{% include 'main/header.html' %}
+
+{% include 'main/breadcrumb.html' %}
+
+    <!-- Register Complaint
+    ============================================= -->
+    <div class="container mt-5">
+        <div class="consultation-area default-padding-bottom">
+            <div class="row align-center">
+                <div class="col-lg-12 form">
+                    <div class="appoinment-box text-center wow fadeInRight">
+                        <div class="container-form">
+                            <img src="{% static 'main/img/logo-light.png' %}" alt="Logo" style="max-width:150px ;max-height: 150px;">
+                            <div class="heading mt-3">
+                            <center><h2 style="color:#fff; font-family:monospace;"><strong>Complaint id: </strong>{{complaint.complaint_id}}</h2>
+                                <h2 style="color:#fff; font-family:monospace;">
+                                <strong>Status: </strong>
+                                {% if complaint.is_pending %}
+                                    Pending
+                                {% elif complaint.is_forwarded %}
+                                    Forwarded
+                                {% elif complaint.is_canceled %}
+                                    Dropped
+                                {% elif complaint.is_completed %}
+                                    Not Resolved
+                                {% elif complaint.is_withdrawn %}
+                                    Dropped
+                                {% elif complaint.is_completed_resolved %}
+                                    Resolved
+                                {% endif %}
+                                    
+                                </h2> </center>
+                                </div>
+                                <form action="#">
+                                  <div class="row">
+                                      <div class="col-md-12">
+                                          <div class="form-group">
+                                {% if complaint.is_pending %}     
+                                            <br>
+                                            <hr>
+                                        <table class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                        <tr>
+                                            <td style="text-align: center; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge;height:160px;width:200px"> {{complaint.created_at}}</td>
+                                            <td>
+                                                 <table>
+                                                        <td>
+                                                        <tr>
+                                                    <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                                    <p style="color: rgb(255, 255, 255);"><strong style="color: rgb(255, 255, 255);"> Action Taken: </strong>
+                                                        Pending - Complaint Under Consideration
+                                                    </p>
+                                                </div></tr>
+                                                <tr>
+                                                <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                                    <p style="color: rgb(255, 255, 255);"><strong style="color: rgb(255, 255, 255);"> Action Date: </strong>
+                                                        {{complaint.created_at}}
+                                                    </p>
+                                                </div>
+                                            </tr>
+                                            <tr>
+                                                <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                                    <p style="color: rgb(255, 255, 255);"><strong style="color: rgb(255, 255, 255);"> Action Description: </strong>
+                                                        Your Complaint is submitted. Wait for further Respnse.
+                                                    </p>
+                                                    </div>  
+                                                </tr>
+                                            </td>
+                                        </table>
+                                            </div>
+                                            
+                                            </td>
+                                        </tr>
+                                            
+                                        
+                                        </table>
+                                            <br>
+                                {%  elif complaint.is_forwarded %} 
+                                    <br>
+                                    <hr>
+                                    <table class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                    <tr>
+                                    <td style="text-align: center; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge;height:160px;width:200px"> {{complaint.created_at}}</td>
+                                    <td>
+                                     <table>
+                                            <td>
+                                            <tr>
+                                        <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                        <p style="color: rgb(255, 255, 255);"><strong> Action Taken: </strong>
+                                            Pending - Complaint Under Consideration
+                                        </p>
+                                    </div></tr>
+                                    <tr>
+                                    <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                        <p style="color: rgb(255, 255, 255);"><strong> Action Date: </strong>
+                                            {{complaint.created_at}}
+                                        </p>
+                                    </div>
+                                    </tr>
+                                    <tr>
+                                    <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                        <p style="color: rgb(255, 255, 255);"><strong> Action Description: </strong>
+                                            Your Complaint is submitted. Wait for further Respnse.
+                                        </p>
+                                        </div>  
+                                    </tr>
+                                    </td>
+                                    </table>
+                                    </div>
+                                
+                                    </td>
+                                    </tr>
+                                
+                            
+                                    </table>              
+                                    <br>
+                                    <hr>
+                                    <table class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                    <tr>
+                                    <td style="text-align: center; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge;height:160px;width:200px"> {{complaint.forwarded_at}}</td>
+                                    <td>
+                                         <table>
+                                                <td>
+                                                <tr>
+                                            <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                            <p style="color: rgb(255, 255, 255);"><strong> Action Taken: </strong>
+                                                        Forwarded - Complaint forwarded to Focal Person
+                                                    </p>
+                                                </div></tr>
+                                                <tr>
+                                                <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                                    <p style="color: rgb(255, 255, 255);"><strong> Action Date: </strong>
+                                                        {{complaint.forwarded_at}}
+                                                    </p>
+                                                </div>
+                                            </tr>
+                                            <tr>
+                                                <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                                    <p style="color: rgb(255, 255, 255);"><strong> Action Description: </strong>
+                                                        {{complaint.forwarded_msg}}
+                                                    </p>
+                                                    </div>  
+                                                </tr>
+                                            </td>
+                                        </table>
+                                            </div>
+                                            
+                                            </td>
+                                        </tr>
+                                            
+                                        
+                                        </table>
+                                            <br>
+                                            
+                                
+                                {%  elif complaint.is_canceled %} 
+                                    <br>
+                                    <hr>
+                                    <table class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                    <tr>
+                                    <td style="text-align: center; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge;height:160px;width:200px"> {{complaint.created_at}}</td>
+                                    <td>
+                                     <table>
+                                            <td>
+                                            <tr>
+                                        <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                        <p style="color: rgb(255, 255, 255);"><strong> Action Taken: </strong>
+                                            Pending - Complaint Under Consideration
+                                        </p>
+                                    </div></tr>
+                                    <tr>
+                                    <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                        <p style="color: rgb(255, 255, 255);"><strong> Action Date: </strong>
+                                            {{complaint.created_at}}
+                                        </p>
+                                    </div>
+                                    </tr>
+                                    <tr>
+                                    <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                        <p style="color: rgb(255, 255, 255);"><strong> Action Description: </strong>
+                                            Your Complaint is submitted. Wait for further Respnse.
+                                        </p>
+                                        </div>  
+                                    </tr>
+                                    </td>
+                                    </table>
+                                    </div>
+                                
+                                    </td>
+                                    </tr>
+                                
+                            
+                                    </table> 
+                                    <br>             
+                                            <br>
+                                            <hr>
+                                        <table class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                        <tr>
+                                            <td style="text-align: center; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge;height:160px;width:200px"> {{complaint.created_at}}</td>
+                                            <td>
+                                                 <table>
+                                                        <td>
+                                                        <tr>
+                                                    <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                                    <p style="color: rgb(255, 255, 255);"><strong> Action Taken: </strong>
+                                                        Forwarded - Complaint forwarded to Focal Person
+                                                    </p>
+                                                </div></tr>
+                                                <tr>
+                                                <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                                    <p style="color: rgb(255, 255, 255);"><strong> Action Date: </strong>
+                                                        {{complaint.forwarded_at}}
+                                                    </p>
+                                                </div>
+                                            </tr>
+                                            <tr>
+                                                <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                                    <p style="color: rgb(255, 255, 255);"><strong> Action Description: </strong>
+                                                        {{complaint.forwarded_msg}}
+                                                    </p>
+                                                    </div>  
+                                                </tr>
+                                            </td>
+                                        </table>
+                                            </div>
+                                            
+                                            </td>
+                                        </tr>
+                                            
+                                        
+                                        </table>
+                                            <br>
+                                            <br>
+                                            <hr>
+                                        <table class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                        <tr>
+                                            <td style="text-align: center; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge;height:160px;width:200px"> {{complaint.created_at}}</td>
+                                            <td>
+                                                 <table>
+                                                        <td>
+                                                        <tr>
+                                                    <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                                    <p style="color: rgb(255, 255, 255);"><strong> Action Taken: </strong>
+                                                        Dropped - Not a valid Complaint
+                                                    </p>
+                                                </div></tr>
+                                                <tr>
+                                                <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                                    <p style="color: rgb(255, 255, 255);"><strong> Action Date: </strong>
+                                                        {{complaint.cancel_at}}
+                                                    </p>
+                                                </div>
+                                            </tr>
+                                            <tr>
+                                                <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                                    <p style="color: rgb(255, 255, 255);"><strong> Action Description: </strong>
+                                                        {{complaint.canceled_msg}}
+                                                    </p>
+                                                    </div>  
+                                                </tr>
+                                            </td>
+                                        </table>
+                                            </div>
+                                            
+                                            </td>
+                                        </tr>
+                                            
+                                        
+                                        </table>
+                                            <br>          
+                                           
+                                
+                                            
+                                {%  elif complaint.is_withdrawn %} 
+                                    <br>
+                                    <hr>
+                                    <table class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                    <tr>
+                                    <td style="text-align: center; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge;height:160px;width:200px"> {{complaint.created_at}}</td>
+                                    <td>
+                                     <table>
+                                            <td>
+                                            <tr>
+                                        <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                        <p style="color: rgb(255, 255, 255);"><strong> Action Taken: </strong>
+                                            Pending - Complaint Under Consideration
+                                        </p>
+                                    </div></tr>
+                                    <tr>
+                                    <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                        <p style="color: rgb(255, 255, 255);"><strong> Action Date: </strong>
+                                            {{complaint.created_at}}
+                                        </p>
+                                    </div>
+                                    </tr>
+                                    <tr>
+                                    <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                        <p style="color: rgb(255, 255, 255);"><strong> Action Description: </strong>
+                                            Your Complaint is submitted. Wait for further Respnse.
+                                        </p>
+                                        </div>  
+                                    </tr>
+                                    </td>
+                                    </table>
+                                    </div>
+                                
+                                    </td>
+                                    </tr>
+                                
+                            
+                                    </table> 
+                                    <br>             
+                                            <br>
+                                            <hr>
+                                        <table class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                        <tr>
+                                            <td style="text-align: center; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge;height:160px;width:200px"> {{complaint.created_at}}</td>
+                                            <td>
+                                                 <table>
+                                                        <td>
+                                                        <tr>
+                                                    <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                                    <p style="color: rgb(255, 255, 255);"><strong> Action Taken: </strong>
+                                                        Forwarded - Complaint forwarded to Focal Person
+                                                    </p>
+                                                </div></tr>
+                                                <tr>
+                                                <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                                    <p style="color: rgb(255, 255, 255);"><strong> Action Date: </strong>
+                                                        {{complaint.forwarded_at}}
+                                                    </p>
+                                                </div>
+                                            </tr>
+                                            <tr>
+                                                <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                                    <p style="color: rgb(255, 255, 255);"><strong> Action Description: </strong>
+                                                        {{complaint.forwarded_msg}}
+                                                    </p>
+                                                    </div>  
+                                                </tr>
+                                            </td>
+                                        </table>
+                                            </div>
+                                            
+                                            </td>
+                                        </tr>
+                                            
+                                        
+                                        </table>
+                                            <br>
+                                            <br>
+                                            <hr>
+                                        <table class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                        <tr>
+                                            <td style="text-align: center; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge;height:160px;width:200px"> {{complaint.created_at}}</td>
+                                            <td>
+                                                 <table>
+                                                        <td>
+                                                        <tr>
+                                                    <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                                    <p style="color: rgb(255, 255, 255);"><strong> Action Taken: </strong>
+                                                        Dropped - Requested by User
+                                                    </p>
+                                                </div></tr>
+                                                <tr>
+                                                <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                                    <p style="color: rgb(255, 255, 255);"><strong> Action Date: </strong>
+                                                        {{complaint.withdrawn_at}}
+                                                    </p>
+                                                </div>
+                                            </tr>
+                                            <tr>
+                                                <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                                    <p style="color: rgb(255, 255, 255);"><strong> Action Description: </strong>
+                                                        You have withdrawn the Complaint.
+                                                    </p>
+                                                    </div>  
+                                                </tr>
+                                            </td>
+                                        </table>
+                                            </div>
+                                            
+                                            </td>
+                                        </tr>
+                                            
+                                        
+                                        </table>
+                                            <br>          
+                                      
+                                {%  elif complaint.is_completed_resolved %} 
+                                    <br>
+                                    <hr>
+                                    <table class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                    <tr>
+                                    <td style="text-align: center; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge;height:160px;width:200px"> {{complaint.created_at}}</td>
+                                    <td>
+                                     <table>
+                                            <td>
+                                            <tr>
+                                        <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                        <p style="color: rgb(255, 255, 255);"><strong> Action Taken: </strong>
+                                            Pending - Complaint Under Consideration
+                                        </p>
+                                    </div></tr>
+                                    <tr>
+                                    <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                        <p style="color: rgb(255, 255, 255);"><strong> Action Date: </strong>
+                                            {{complaint.created_at}}
+                                        </p>
+                                    </div>
+                                    </tr>
+                                    <tr>
+                                    <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                        <p style="color: rgb(255, 255, 255);"><strong> Action Description: </strong>
+                                            Your Complaint is submitted. Wait for further Respnse.
+                                        </p>
+                                        </div>  
+                                    </tr>
+                                    </td>
+                                    </table>
+                                    </div>
+                                
+                                    </td>
+                                    </tr>
+                                
+                            
+                                    </table> 
+                                    <br>             
+                                            <br>
+                                            <hr>
+                                        <table class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                        <tr>
+                                            <td style="text-align: center; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge;height:160px;width:200px"> {{complaint.created_at}}</td>
+                                            <td>
+                                                 <table>
+                                                        <td>
+                                                        <tr>
+                                                    <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                                    <p style="color: rgb(255, 255, 255);"><strong> Action Taken: </strong>
+                                                        Forwarded - Complaint forwarded to Focal Person
+                                                    </p>
+                                                </div></tr>
+                                                <tr>
+                                                <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                                    <p style="color: rgb(255, 255, 255);"><strong> Action Date: </strong>
+                                                        {{complaint.forwarded_at}}
+                                                    </p>
+                                                </div>
+                                            </tr>
+                                            <tr>
+                                                <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                                    <p style="color: rgb(255, 255, 255);"><strong> Action Description: </strong>
+                                                        {{complaint.forwarded_msg}}
+                                                    </p>
+                                                    </div>  
+                                                </tr>
+                                            </td>
+                                        </table>
+                                            </div>
+                                            
+                                            </td>
+                                        </tr>
+                                            
+                                        
+                                        </table>
+                                            <br>
+                                            <br>
+                                            <hr>
+                                        <table class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                        <tr>
+                                            <td style="text-align: center; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge;height:160px;width:200px"> {{complaint.closed_at}}</td>
+                                            <td>
+                                                 <table>
+                                                        <td>
+                                                        <tr>
+                                                    <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                                    <p style="color: rgb(255, 255, 255);"><strong> Action Taken: </strong>
+                                                        Closed - Issue Resolved
+                                                    </p>
+                                                </div></tr>
+                                                <tr>
+                                                <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                                    <p style="color: rgb(255, 255, 255);"><strong> Action Date: </strong>
+                                                        {{complaint.closed_at}}
+                                                    </p>
+                                                </div>
+                                            </tr>
+                                            <tr>
+                                                <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                                    <p style="color: rgb(255, 255, 255);"><strong> Action Description: </strong>
+                                                        {{complaint.completed_msg}}
+                                                    </p>
+                                                    </div>  
+                                                </tr>
+                                            </td>
+                                        </table>
+                                            </div>
+                                            
+                                            </td>
+                                        </tr>
+                                            
+                                        
+                                        </table>
+                                            <br>          
+                                {%  elif  complaint.is_completed   %} 
+                                    <br>
+                                    <hr>
+                                    <table class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                    <tr>
+                                    <td style="text-align: center; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge;height:160px;width:200px"> {{complaint.created_at}}</td>
+                                    <td>
+                                     <table>
+                                            <td>
+                                            <tr>
+                                        <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                        <p style="color: rgb(255, 255, 255);"><strong> Action Taken: </strong>
+                                            Pending - Complaint Under Consideration
+                                        </p>
+                                    </div></tr>
+                                    <tr>
+                                    <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                        <p style="color: rgb(255, 255, 255);"><strong> Action Date: </strong>
+                                            {{complaint.created_at}}
+                                        </p>
+                                    </div>
+                                    </tr>
+                                    <tr>
+                                    <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                        <p style="color: rgb(255, 255, 255);"><strong> Action Description: </strong>
+                                            Your Complaint is submitted. Wait for further Respnse.
+                                        </p>
+                                        </div>  
+                                    </tr>
+                                    </td>
+                                    </table>
+                                    </div>
+                                
+                                    </td>
+                                    </tr>
+                                
+                            
+                                    </table> 
+                                    <br>             
+                                    <br>
+                                    <hr>
+                                    <table class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                    <tr>
+                                    <td style="text-align: center; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge;height:160px;width:200px"> {{complaint.forwarded_at}}</td>
+                                    <td>
+                                         <table>
+                                                <td>
+                                                <tr>
+                                            <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                            <p style="color: rgb(255, 255, 255);"><strong> Action Taken: </strong>
+                                                Forwarded - Complaint forwarded to Focal Person
+                                            </p>
+                                        </div></tr>
+                                        <tr>
+                                        <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                            <p style="color: rgb(255, 255, 255);"><strong> Action Date: </strong>
+                                                {{complaint.forwarded_at}}
+                                            </p>
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                            <p style="color: rgb(255, 255, 255);"><strong> Action Description: </strong>
+                                                {{complaint.forwarded_msg}}
+                                            </p>
+                                            </div>  
+                                        </tr>
+                                    </td>
+                                    </table>
+                                    </div>
+                                    
+                                    </td>
+                                    </tr>
+                                    
+                                
+                                     </table>
+                                    <br>
+                                    
+                                            <br>
+                                            <hr>
+                                        <table class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                        <tr>
+                                            <td style="text-align: center; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge;height:160px;width:200px"> {{complaint.closed_at}}</td>
+                                            <td>
+                                                 <table>
+                                                        <td>
+                                                        <tr>
+                                                    <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                                    <p style="color: rgb(255, 255, 255);"><strong> Action Taken: </strong>
+                                                        Closed - Not Resolved
+                                                    </p>
+                                                </div></tr>
+                                                <tr>
+                                                <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                                    <p style="color: rgb(255, 255, 255);"><strong> Action Date: </strong>
+                                                        {{complaint.closed_at}}
+                                                    </p>
+                                                </div>
+                                            </tr>
+                                            <tr>
+                                                <div class="col-md-12" style="text-align: left; color: white; background-color: #06a0931a; border-color: #fff; border-style: ridge; text-emphasis-color:white;">
+                                                    <p style="color: rgb(255, 255, 255);"><strong> Action Description: </strong>
+                                                        {{complaint.completed_msg}}
+                                                    </p>
+                                                    </div>  
+                                                </tr>
+                                            </td>
+                                        </table>
+                                            </div>
+                                            
+                                            </td>
+                                        </tr>
+                                            
+                                        
+                                        </table>
+                                            <br>        
+                                {% else  %}           
+                                    <p style="color: rgb(255, 255, 255);">
+                                       Error occured while viewing Details.
+                                    </p>                           
+                                {% endif %}    
+                                </div>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End Registeration -->
+
+
+{% include 'main/footer.html' %}
+    
+{% endblock main %}

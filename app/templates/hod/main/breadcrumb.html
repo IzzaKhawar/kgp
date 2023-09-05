@@ -1,0 +1,25 @@
+    {% load static %}
+    <!-- Start Breadcrumb 
+    ============================================= -->
+    <div class="breadcrumb-area bg-gradient text-center">
+        <!-- Fixed BG -->
+        <div class="fixed-bg" style="background-image: url({% static 'main/img/back.png' %});"></div>
+        <!-- Fixed BG -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <h1>{{pgname}}</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a></li>
+                        {% if pgsubname %}
+                        <li><a href="{% url 'home' %}{{pgurl}}">{{pgname}}</a></li>
+                        <li class="active">{{pgsubname}}</li>
+                        {% else %}
+                        <li class="active">{{pgname}}</li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumb -->
