@@ -85,8 +85,8 @@ If you have any questions or need assistance, please contact our support team at
 [**customer.kgp@gmail.com**](mailto:customer.kgp@gmail.com)
 ## Acknowledgments
 We would like to thank the following individuals and organizations for their contributions and support.
-[**Rizwan Ahmed**](https://github.com/rizwanahmad8311)
-[**Izza Khawar**](https://github.com/IzzaKhawar)
-[**Mariam Khalid**](https://github.com/)
-[**KFUEIT University**](https://kfueit.edu.pk)
+- [**Rizwan Ahmed**](https://github.com/rizwanahmad8311)
+- [**Izza Khawar**](https://github.com/IzzaKhawar)
+- [**Mariam Khalid**](https://github.com/)
+- [**KFUEIT University**](https://kfueit.edu.pk)
 
